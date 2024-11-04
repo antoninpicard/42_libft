@@ -15,7 +15,7 @@ char	*ft_find_start(char const *s1, char const *set)
 		while (set[j])
 		{
 			if (s1[i] == set[j])
-				in_set == 1;
+				in_set = 1;
 			j++;
 		}
 		if (!in_set)
@@ -77,8 +77,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*end;
 	char	*new_s;
 
-	start = find_start(s1, set);
-	end = find_end(s1, set, s1);
+	start = ft_find_start(s1, set);
+	end = ft_find_end(s1, set, s1);
 	if (!s1[0] || end < start)
 	{
 		new_s = malloc(sizeof(char) * 1);
@@ -87,7 +87,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		new_s[0] = '\0';
 	}
 	else
-		new_s = fill_str(start, end);
+		new_s = ft_calc_s(start, end);
 	if (!new_s)
 		return (NULL);
 	return (new_s);
