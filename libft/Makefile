@@ -24,7 +24,9 @@ SRCS = main.c \
 	ft_calloc.c \
 	ft_substr.c \
 	ft_strjoin.c \
-	ft_strtrim.c
+	ft_strtrim.c \
+	ft_split.c \
+	ft_itoa.c
 CC = cc
 FLAGS = -Wall -Wextra -Werror
 OBJS = $(SRCS:.c=.o)
