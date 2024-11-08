@@ -6,21 +6,20 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 12:47:22 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/06 12:52:39 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/08 12:09:48 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
+	if (!s || fd < 0)
+		return ;
+	while (*s)
 	{
-		write(fd, &s, 1);
-		i++;
+		write(fd, s, 1);
+		s++;
 	}
 	write(fd, "\n", 1);
 }

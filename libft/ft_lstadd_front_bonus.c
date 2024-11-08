@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 11:02:36 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/06 11:32:54 by anpicard         ###   ########.fr       */
+/*   Created: 2024/11/06 15:30:20 by anpicard          #+#    #+#             */
+/*   Updated: 2024/11/07 10:10:01 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
-int	main(void)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	printf("%s", ft_itoa(-122225));
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }

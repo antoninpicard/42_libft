@@ -6,7 +6,7 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:03:14 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/06 11:26:08 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/08 14:14:16 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	int				i;
+	unsigned char	uc;
 
+	uc = (unsigned char)c;
 	i = 0;
-	if (!s)
-		return (NULL);
 	while (s[i])
 	{
-		if (s[i] == (char) c)
+		if ((unsigned char)s[i] == uc)
 			return ((char *)(s + i));
 		i++;
 	}
-	if (c == 0)
+	if (uc == '\0')
 		return ((char *)(s + i));
 	return (NULL);
 }

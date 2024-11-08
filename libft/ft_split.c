@@ -6,56 +6,65 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:03:17 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/06 12:29:09 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:03:26 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_count_words(char const *s, char c)
+static size_t	ft_count_words(char const *s, char c)
 {
-	int	nb_words;
-	int	i;
+	size_t	nb_words;
+	size_t	i;
 
 	i = 0;
 	nb_words = 0;
 	while (s[i])
 	{
-		if ((s[i] != c && s[i + 1] == c) || !s[i])
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
 			nb_words++;
 		i++;
 	}
 	return (nb_words);
 }
 
-char	*ft_copy_words(char const *src, size_t len)
+static char	*ft_copy_words(char const *src, size_t len)
 {
 	char	*str;
 	size_t	i;
 
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
 	i = 0;
-	str = malloc(sizeof(char) * ft_strlen(src) + 1);
-	if (str)
+	while (i < len)
 	{
-		while (i < len)
-		{
-			str[i] = src[i];
-			i++;
-		}
-		str[i] = 0;
-		return (str);
+		str[i] = src[i];
+		i++;
 	}
-	return (0);
+	str[i] = '\0';
+	return (str);
 }
 
-char	**ft_split(char const *s, char c)
+static void	free_all(char **array, size_t count)
 {
-	int		i;
-	int		j;
-	int		k;
-	char	**split;
+	size_t	i;
 
-	split = (char **) malloc(sizeof(char *) * ft_count_words(s, c));
+	i = 0;
+	while (i < count)
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
+}
+
+static char	**split_words(char const *s, char c, char **split)
+{
+	size_t	i;
+	size_t	j;
+	size_t	k;
+
 	i = 0;
 	k = 0;
 	while (s[i])
@@ -68,9 +77,25 @@ char	**ft_split(char const *s, char c)
 		if (i > j)
 		{
 			split[k] = ft_copy_words(s + j, i - j);
-			k++;
+			if (!split[k++])
+			{
+				free_all(split, k);
+				return (NULL);
+			}
 		}
 	}
-	split[k] = 0;
+	split[k] = NULL;
 	return (split);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**split;
+
+	if (!s)
+		return (NULL);
+	split = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
+	if (!split)
+		return (NULL);
+	return (split_words(s, c, split));
 }

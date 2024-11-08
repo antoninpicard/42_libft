@@ -6,13 +6,13 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:02:50 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/06 11:31:18 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/06 14:59:19 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_find_start(char const *s1, char const *set)
+static char	*ft_find_start(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	j;
@@ -38,7 +38,7 @@ char	*ft_find_start(char const *s1, char const *set)
 	return ((char *) s1 + i);
 }
 
-char	*ft_find_end(char const *s1, char const *set, char const *start)
+static char	*ft_find_end(char const *s1, char const *set, char const *start)
 {
 	size_t	i;
 	size_t	j;
@@ -66,7 +66,7 @@ char	*ft_find_end(char const *s1, char const *set, char const *start)
 	return ((char *) s1 + i);
 }
 
-char	*ft_calc_s(char const *start, char const *end)
+static char	*ft_calc_s(char const *start, char const *end)
 {
 	char	*new_s;
 	size_t	i;

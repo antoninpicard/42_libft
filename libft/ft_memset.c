@@ -6,7 +6,7 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:03:19 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/06 11:25:26 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/08 11:49:22 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	*ft_memset(void *s, int c, size_t n)
 	size_t	i;
 
 	i = 0;
-	if (!s)
-		return (NULL);
 	while (i < n)
 	{
 		*(unsigned char *)(s + i) = (unsigned char) c;

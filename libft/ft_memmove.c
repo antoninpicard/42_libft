@@ -6,7 +6,7 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:03:22 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/06 11:22:51 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/08 11:52:29 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 
-	if (!dest || !src)
+	if (!dest && !src && n)
 		return (NULL);
 	if (dest < src)
 	{

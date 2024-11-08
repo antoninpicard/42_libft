@@ -6,7 +6,7 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:03:04 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/06 11:03:05 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/08 11:56:13 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	i;
 
 	i = 0;
-	if (!dst || !src)
+	if (!dst && !src && dstsize == 0)
 		return (0);
 	while (src[i] && i + 1 < dstsize)
 	{

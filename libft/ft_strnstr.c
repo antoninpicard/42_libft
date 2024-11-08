@@ -6,7 +6,7 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:02:56 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/06 11:28:31 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/08 11:53:41 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	len_little = ft_strlen(little);
 	i = 0;
-	if (!big || !little)
+	if (!big && !little && len)
 		return (NULL);
 	if (len_little == 0)
 		return ((char *) big);
