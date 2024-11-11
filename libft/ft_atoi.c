@@ -6,10 +6,11 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:03:51 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/08 12:08:41 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/11 16:41:00 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits.h>
 #include "libft.h"
 
 int	ft_atoi(const char *str)
@@ -32,8 +33,19 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		result = result * 10 + str[i] - '0';
+		if ((result * 10 + str[i] - '0') / 10 == result)
+			result = result * 10 + str[i] - '0';
+		else
+			return ((sign < 0) * LONG_MIN + (sign > 0) * LONG_MAX);
 		i++;
 	}
 	return (result * sign);
+}
+
+#include <stdio.h>
+int	main(void)
+{
+	printf("Int value: %d\n", ft_atoi("9223372036854775809987123"));
+	printf("Int value: %d\n", atoi("9223372036854775899"));
+	return (0);
 }

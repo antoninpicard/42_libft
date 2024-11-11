@@ -6,7 +6,7 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:02:39 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/08 14:30:30 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/11 17:17:01 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 size_t	ft_strlen(const char *s);
 int		ft_atoi(const char *str);

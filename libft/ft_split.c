@@ -6,7 +6,7 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:03:17 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/08 16:03:26 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/11 17:29:13 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,3 +99,17 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (split_words(s, c, split));
 }
+
+/*
+int	main(void)
+{
+	char	*test;
+	char	**split;
+
+	test = ft_strdup(" bonjour a tous");
+	split = ft_split(test, ' ');
+	printf("value 1: %s\n", split[0]);
+	free_all(split, 3);
+	free(test);
+	return (0);
+}*/

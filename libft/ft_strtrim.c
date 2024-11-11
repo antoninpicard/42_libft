@@ -6,7 +6,7 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:02:50 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/06 14:59:19 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/11 17:10:19 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!new_s)
 		return (NULL);
 	return (new_s);
+}
+
+#include <stdio.h>
+int	main(void)
+{
+	printf("trimmed: <%s>\n", ft_strtrim("bonjoour", "	"));
+	return (0);
 }

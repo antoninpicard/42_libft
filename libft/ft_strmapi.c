@@ -6,7 +6,7 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:57:22 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/08 11:20:36 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/11 16:58:00 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*new_s;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	new_s = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (!new_s)
 		return (NULL);
