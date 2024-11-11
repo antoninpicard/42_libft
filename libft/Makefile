@@ -6,7 +6,7 @@
 #    By: anpicard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/06 11:02:30 by anpicard          #+#    #+#              #
-#    Updated: 2024/11/08 17:45:41 by anpicard         ###   ########.fr        #
+#    Updated: 2024/11/11 10:09:27 by anpicard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ NAME = libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(HEADER)
+$(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 bonus:	$(OBJS_BONUS) 
