@@ -6,7 +6,7 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:03:32 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/06 11:03:33 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/12 14:39:18 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,3 +60,38 @@ char	*ft_itoa(int n)
 		str[0] = '-';
 	return (str);
 }
+
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <string.h>
+
+// int main()
+// {
+//     int test_values[] = {0, -123, 456, -2147483648, 2147483647};
+//     char *expected_results[] = {"0", "-123", "456", "-2147483648",
+//					 "2147483647"};
+//     int num_tests = sizeof(test_values) / sizeof(test_values[0]);
+//     int success = 1;
+
+//     for (int i = 0; i < num_tests; i++)
+//     {
+//         char *result = ft_itoa(test_values[i]);
+//         if (strcmp(result, expected_results[i]) != 0)
+//         {
+//             printf("Test %d: failed for input %d, expected '%s', got
+//					 '%s'\n", i + 1, 
+//						test_values[i], expected_results[i], result);
+//             success = 0;
+//         }
+//         else
+//         {
+//             printf("Test %d: success\n", i + 1);
+//         }
+//         free(result);
+//     }
+
+//     if (success)
+//         printf("All tests passed!\n");
+
+//     return 0;
+// }

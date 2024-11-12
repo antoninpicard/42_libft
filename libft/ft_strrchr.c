@@ -6,7 +6,7 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:02:53 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/12 11:00:28 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/12 14:37:18 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,40 @@ char	*ft_strrchr(const char *s, int c)
 		return (0);
 	return ((char *)s + p);
 }
+
+// #include <stdio.h>
+// #include <string.h>
+
+// int main()
+// {
+//     const char *str = "Hello, World!";
+//     char c1 = 'o';
+//     char c2 = 'z';
+//     char c3 = '\0';
+
+//     // Test 1: Caractère présent plusieurs fois dans la chaîne
+//     char *result1 = ft_strrchr(str, c1);
+//     if (result1)
+//         printf("Last occurrence of '%c' found at position: %ld\n",
+//				 c1, result1 - str);
+//     else
+//         printf("Character '%c' not found\n", c1);
+
+//     // Test 2: Caractère absent de la chaîne
+//     char *result2 = ft_strrchr(str, c2);
+//     if (result2)
+//         printf("Last occurrence of '%c' found at position: %ld\n",
+//				 c2, result2 - str);
+//     else
+//         printf("Character '%c' not found\n", c2);
+
+//     // Test 3: Recherche du caractère nul '\0'
+//     char *result3 = ft_strrchr(str, c3);
+//     if (result3)
+//         printf("Null character found at position: %ld\n", result3
+//				 - str);
+//     else
+//         printf("Null character not found\n");
+
+//     return 0;
+// }
