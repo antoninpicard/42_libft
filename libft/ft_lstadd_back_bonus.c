@@ -6,7 +6,7 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 16:39:32 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/12 10:09:13 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/12 11:47:40 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,11 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 	if (!new)
 		return ;
-	if (!lst)
+	if (*lst)
 	{
 		*lst = new;
 		return ;
 	}
-	if (*lst)
-	{
-		last = ft_lstlast(*lst);
-		last->next = new;
-	}
+	last = ft_lstlast(*lst);
+	last->next = new;
 }

@@ -6,7 +6,7 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:03:51 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/12 10:11:40 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/12 11:13:57 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 int	ft_atoi(const char *str)
 {
-	size_t	i;
-	int		sign;
-	int		result;
+	size_t		i;
+	int			sign;
+	long int	result;
 
 	i = 0;
 	sign = 1;
 	result = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
+	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -42,9 +41,12 @@ int	ft_atoi(const char *str)
 }
 
 // #include <stdio.h>
-// int	main(void)
+// int    main()
 // {
-// 	printf("Int value: %d\n", ft_atoi("9223372036854775809987123"));
-// 	printf("Int value: %d\n", atoi("9223372036854775899"));
-// 	return (0);
+// char int_min[] = "-2147483648";
+// char int_max[] = "2147483647";
+// char long_min[] = "-9223372036854775808";
+// char long_max[] = "9223372036854775807";
+//     printf("atoi : %d\n", atoi(long_max));
+//     printf("ft_atoi : %d", ft_atoi(long_max));
 // }
