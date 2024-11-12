@@ -6,11 +6,10 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:03:51 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/11 16:41:00 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/12 10:11:40 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
 #include "libft.h"
 
 int	ft_atoi(const char *str)
@@ -42,10 +41,10 @@ int	ft_atoi(const char *str)
 	return (result * sign);
 }
 
-#include <stdio.h>
-int	main(void)
-{
-	printf("Int value: %d\n", ft_atoi("9223372036854775809987123"));
-	printf("Int value: %d\n", atoi("9223372036854775899"));
-	return (0);
-}
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	printf("Int value: %d\n", ft_atoi("9223372036854775809987123"));
+// 	printf("Int value: %d\n", atoi("9223372036854775899"));
+// 	return (0);
+// }
