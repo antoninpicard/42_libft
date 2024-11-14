@@ -6,7 +6,7 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:02:56 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/12 14:37:58 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/14 09:06:30 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 //     const char *little3 = "";
 //     size_t len = 13;
 
-//     // Test 1: Sous-chaîne présente dans la chaîne principale
 //     char *result1 = ft_strnstr(big, little1, len);
 //     if (result1)
 //         printf("Found '%s' in '%s' at position: %ld\n", little1, 
@@ -64,14 +63,12 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 //         printf("'%s' not found in '%s'\n", little1, big);
 //				
 
-//     // Test 2: Sous-chaîne absente de la chaîne principale
 //     char *result2 = ft_strnstr(big, little2, len);
 //     if (result2)
 //         printf("Found '%s' in '%s'\n", little2, big);
 //     else
 //         printf("'%s' not found in '%s'\n", little2, big);
 
-//     // Test 3: Recherche d'une sous-chaîne vide
 //     char *result3 = ft_strnstr(big, little3, len);
 //     if (result3)
 //         printf("Found empty string in '%s' at position: %ld\n", 

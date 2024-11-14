@@ -6,7 +6,7 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:03:22 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/12 15:11:07 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/14 09:07:33 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,12 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 //     char str1[] = "Overlap Example";
 //     char str2[] = "Overlap Example";
 
-//     // Test avec chevauchement, src est avant dest
 //     ft_memmove(str1 + 5, str1, 7);
 //     printf("ft_memmove result: %s\n", str1);
 
 //     memmove(str2 + 5, str2, 7);
 //     printf("Standard memmove result: %s\n", str2);
 
-//     // Test sans chevauchement
 //     char src[] = "Hello, World!";
 //     char dest1[50];
 //     char dest2[50];

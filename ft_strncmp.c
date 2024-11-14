@@ -6,7 +6,7 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:02:58 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/12 14:20:24 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/14 09:06:46 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,15 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 //     const char *str3 = "Hello, Universe!";
 //     size_t n = 5;
 
-//     // Test 1: Chaînes identiques sur les premiers n caractères
 //     int result1 = ft_strncmp(str1, str2, n);
 //     printf("ft_strncmp result (Test 1): %d\n", result1);
 
-//     // Test 2: Chaînes différentes sur les premiers n caractères
 //     int result2 = ft_strncmp(str1, str3, n);
 //     printf("ft_strncmp result (Test 2): %d\n", result2);
 
-//     // Test 3: Comparaison avec n plus grand que la longueur de la chaîne
 //     int result3 = ft_strncmp(str1, str3, 20);
 //     printf("ft_strncmp result (Test 3): %d\n", result3);
 
-//     // Comparaison avec la fonction standard strncmp
 //     int std_result1 = strncmp(str1, str2, n);
 //     int std_result2 = strncmp(str1, str3, n);
 //     int std_result3 = strncmp(str1, str3, 20);

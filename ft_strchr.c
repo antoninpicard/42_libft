@@ -6,7 +6,7 @@
 /*   By: anpicard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 11:03:14 by anpicard          #+#    #+#             */
-/*   Updated: 2024/11/12 14:11:58 by anpicard         ###   ########.fr       */
+/*   Updated: 2024/11/14 09:07:11 by anpicard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,18 @@ char	*ft_strchr(const char *s, int c)
 // {
 //     const char *str = "Hello, World!";
 
-//     // Test avec un caractère présent dans la chaîne
 //     char *result1 = ft_strchr(str, 'W');
 //     if (result1)
 //         printf("Character 'W' found at position: %ld\n", result1 - str);
 //     else
 //         printf("Character 'W' not found\n");
 
-//     // Test avec un caractère absent de la chaîne
 //     char *result2 = ft_strchr(str, 'z');
 //     if (result2)
 //         printf("Character 'z' found at position: %ld\n", result2 - str);
 //     else
 //         printf("Character 'z' not found\n");
 
-//     // Test avec le caractère nul '\0'
 //     char *result3 = ft_strchr(str, '\0');
 //     if (result3)
 //         printf("Null character found at position: %ld\n", result3 - str);
