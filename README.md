@@ -1,6 +1,6 @@
-🎉🚀 **I scored 125/100 on my Libft project!** 🔥💯
+🎉🚀 **I scored 125/100 on my Libft project** 🔥💯
 
-💻✨ Thanks to hard work, sleepless nights, and lots of caffeine ☕, I've completed this outstanding project at 42 with an extra 25 points for excellence! 🙌🔧
+💻✨ Thanks to lots of caffeine ☕, I've completed with outstanding project achievement at 42 with an extra 25 points for bonus! 🔧
 
 👨‍💻💪
 
