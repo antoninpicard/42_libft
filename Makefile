@@ -1,84 +1,109 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: anpicard <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/11/06 11:02:30 by anpicard          #+#    #+#              #
-#    Updated: 2024/11/12 15:40:54 by anpicard         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+# ----------------------------------------------Variables------------------------------------------
 
-SRCS =  ft_strlen.c \
-        ft_atoi.c \
-        ft_isalpha.c \
-        ft_isdigit.c \
-        ft_isalnum.c \
-        ft_isascii.c \
-        ft_isprint.c \
-        ft_memset.c \
-        ft_bzero.c \
-        ft_memcpy.c \
-        ft_memmove.c \
-        ft_strlcpy.c \
-        ft_strlcat.c \
-        ft_toupper.c \
-        ft_tolower.c \
-        ft_strchr.c \
-        ft_strrchr.c \
-        ft_strncmp.c \
-        ft_memchr.c \
-        ft_memcmp.c \
-        ft_strnstr.c \
-        ft_strdup.c \
-        ft_calloc.c \
-        ft_substr.c \
-        ft_strjoin.c \
-        ft_strtrim.c \
-        ft_split.c \
-        ft_itoa.c \
-        ft_strmapi.c \
-        ft_striteri.c \
-        ft_putchar_fd.c \
-        ft_putstr_fd.c \
-        ft_putendl_fd.c \
-        ft_putnbr_fd.c
+# Compiler and flags
+CC := cc
+CFLAGS := -Wall -Wextra -Werror
+AR := ar
+ARFLAGS := rcs
 
-SRCS_BONUS = ft_lstadd_back_bonus.c \
-	ft_lstnew_bonus.c \
-	ft_lstadd_front_bonus.c \
-	ft_lstclear_bonus.c \
-	ft_lstdelone_bonus.c \
-	ft_lstlast_bonus.c \
-	ft_lstsize_bonus.c \
-	ft_lstiter_bonus.c \
-	ft_lstmap_bonus.c
+# Directories
+SRC_DIR := src/
+OBJ_DIR := obj/
+INC_DIR := includes/
 
-CC = cc
-FLAGS = -Wall -Wextra -Werror
-HEADER = libft.h
-OBJS = $(SRCS:.c=.o)
-OBJS_BONUS = $(OBJS) $(SRCS_BONUS:.c=.o)
-NAME = libft.a
+# Source files
+STR_FILES := str/ft_strlen.c str/ft_strlcpy.c str/ft_strlcat.c str/ft_strchr.c \
+	str/ft_strrchr.c str/ft_strncmp.c str/ft_strnstr.c str/ft_strdup.c \
+	str/ft_substr.c str/ft_strjoin.c str/ft_strtrim.c str/ft_split.c \
+	str/ft_strmapi.c str/ft_striteri.c
 
-%.o: %.c $(HEADER) Makefile
-	$(CC) $(FLAGS) -c $< -o $@
+MEM_FILES := mem/ft_memset.c mem/ft_bzero.c mem/ft_memcpy.c mem/ft_memmove.c \
+	mem/ft_memchr.c mem/ft_memcmp.c mem/ft_calloc.c
+
+CHAR_FILES := char/ft_isalpha.c char/ft_isdigit.c char/ft_isalnum.c \
+	char/ft_isascii.c char/ft_isprint.c char/ft_toupper.c char/ft_tolower.c
+
+LST_FILES := lst/ft_lstnew.c lst/ft_lstadd_front.c lst/ft_lstadd_back.c \
+	lst/ft_lstsize.c lst/ft_lstlast.c lst/ft_lstdelone.c lst/ft_lstclear.c \
+	lst/ft_lstiter.c lst/ft_lstmap.c
+
+IO_FILES := io/ft_putchar_fd.c io/ft_putstr_fd.c io/ft_putendl_fd.c \
+	io/ft_putnbr_fd.c io/ft_itoa.c io/ft_atoi.c
+
+PRINTF_FILES := printf/ft_printf.c printf/ft_printf_utils.c printf/ft_printf_hex.c \
+	printf/ft_printf_uns.c
+
+GNL_FILES := gnl/get_next_line.c gnl/get_next_line_utils.c
+
+# Object files
+SRCS := $(STR_FILES) $(MEM_FILES) $(CHAR_FILES) $(LST_FILES) $(IO_FILES) $(PRINTF_FILES) $(GNL_FILES)
+OBJS := $(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
+DEPS := $(OBJS:.o=.d)
+
+# Headers
+HEADERS := $(INC_DIR)libft.h $(INC_DIR)ft_printf.h $(INC_DIR)get_next_line.h
+
+# Output
+NAME := libft.a
+
+# Progress bar variables
+TOTAL_FILES := $(words $(SRCS))
+CURR_FILE := 0
+
+# Colors and formatting
+DEF_COLOR := \033[0;39m
+YELLOW := \033[0;93m
+GREEN := \033[0;92m
+BLUE := \033[0;94m
+CYAN := \033[0;96m
+BOLD := \033[1m
+
+# Silent mode (make V=1 for verbose output)
+ifndef V
+	MAKEFLAGS += --silent
+	VERBOSE := @
+else
+	VERBOSE :=
+endif
+
+# -----------------------------------TARGET---------------------------------------------------
 
 all: $(NAME)
 
+# Create object directory with subdirectories
+$(OBJ_DIR)%/:
+	$(VERBOSE)mkdir -p $@
+
+# Compile objects with dependency files
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(HEADERS) Makefile | $(dir $(OBJS))
+	$(eval CURR_FILE := $(shell echo $$(($(CURR_FILE) + 1))))
+	$(VERBOSE)printf "$(YELLOW)Compiling [%3d%%] %-33s$(DEF_COLOR)\r" $$(($(CURR_FILE) * 100 / $(TOTAL_FILES))) $(notdir $<)
+	$(VERBOSE)$(CC) $(CFLAGS) -MMD -MP -I$(INC_DIR) -c $< -o $@
+
+# Link library
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	$(VERBOSE)$(AR) $(ARFLAGS) $@ $?
+	$(VERBOSE)printf "\n$(GREEN)$(BOLD)Library '$(NAME)' compiled successfully$(DEF_COLOR)\n"
 
-bonus:	$(OBJS_BONUS)
-	ar rc $(NAME) $(OBJS_BONUS)
-
+# Clean targets
 clean:
-	rm -f $(OBJS_BONUS)
+	$(VERBOSE)rm -rf $(OBJ_DIR)
+	$(VERBOSE)printf "$(CYAN)Object files and dependencies cleaned$(DEF_COLOR)\n"
 
-fclean: clean;
-	rm -f $(NAME)
+fclean: clean
+	$(VERBOSE)rm -f $(NAME)
+	$(VERBOSE)printf "$(BLUE)Library '$(NAME)' removed$(DEF_COLOR)\n"
 
-re: fclean all
+re:
+	$(VERBOSE)$(MAKE) fclean
+	$(VERBOSE)$(MAKE) all
+	$(VERBOSE)printf "$(GREEN)$(BOLD)Project rebuilt successfully$(DEF_COLOR)\n"
 
-.PHONY: all clean fclean re bonus
+# Include dependency files
+-include $(DEPS)
+
+# Declare phony targets
+.PHONY: all clean fclean re
+
+# Set parallel jobs
+MAKEFLAGS += -j
